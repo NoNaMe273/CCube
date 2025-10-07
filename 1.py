@@ -7,8 +7,6 @@ import os
 
 pygame.init()
 
-screenshot=0
-
 white = (255, 255, 255)
 black = (0, 0, 0)
 red = (90,237,255)
@@ -62,7 +60,6 @@ class Game_Two():
     def gameLoop(self):
         global dis_width
         global dis_height
-        global screenshot
         score = 1
         snake_speed = 30
         speed = 10
@@ -136,10 +133,6 @@ class Game_Two():
                             menu.index(menu())
                     elif event.type == pygame.QUIT:
                         sys.exit()
-                screensh = pygame.Surface((dis_width, dis_height))
-                screensh.blit(dis, (0, 0))
-                pygame.image.save(screensh, "screen/" + str(screenshot) + ".png")
-                screenshot += 1
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     game_close = True
@@ -273,10 +266,6 @@ class Game_Two():
                 score += 1
                 n+=1
             clock.tick(60)
-            screensh = pygame.Surface((dis_width, dis_height))
-            screensh.blit(dis, (0, 0))
-            pygame.image.save(screensh, "screen/" + str(screenshot) + ".png")
-            screenshot += 1
         sys.exit()
 class Game_Three():
     speed = 10
@@ -316,7 +305,6 @@ class Game_Three():
     def gameLoop(self, spd):
         global dis_width
         global dis_height
-        global screenshot
         score = 0
         snake_speed = 30
         speed = 10
@@ -381,10 +369,6 @@ class Game_Three():
                             menu.index(menu())
                     elif event.type == pygame.QUIT:
                         sys.exit()
-                screensh = pygame.Surface((dis_width, dis_height))
-                screensh.blit(dis, (0, 0))
-                pygame.image.save(screensh, "screen/" + str(screenshot) + ".png")
-                screenshot += 1
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     game_close = True
@@ -495,10 +479,6 @@ class Game_Three():
                     fody = int(round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0)
                 score += 1
             clock.tick(60)
-            screensh = pygame.Surface((dis_width, dis_height))
-            screensh.blit(dis, (0, 0))
-            pygame.image.save(screensh, "screen/" + str(screenshot) + ".png")
-            screenshot += 1
         sys.exit()
 class Game_One():
     global lang
@@ -531,7 +511,6 @@ class Game_One():
     def gameLoop(self):
         global dis_width
         global dis_height
-        global screenshot
         score = 1
         snake_speed = 30
         speed = 10
@@ -599,10 +578,6 @@ class Game_One():
                             menu.index(menu())
                     elif event.type == pygame.QUIT:
                         sys.exit()
-                screensh = pygame.Surface((dis_width, dis_height))
-                screensh.blit(dis, (0, 0))
-                pygame.image.save(screensh, "screen/" + str(screenshot) + ".png")
-                screenshot += 1
             while game_win == True:
                 dis.fill(black)
                 if lang == 1:
@@ -621,10 +596,6 @@ class Game_One():
                             menu.index(menu())
                     elif event.type == pygame.QUIT:
                         sys.exit()
-                screensh = pygame.Surface((dis_width, dis_height))
-                screensh.blit(dis, (0, 0))
-                pygame.image.save(screensh, "screen/" + str(screenshot) + ".png")
-                screenshot += 1
             keys = pygame.key.get_pressed()
 
             if keys[pygame.K_a] and keys[pygame.K_w]:
@@ -761,16 +732,11 @@ class Game_One():
                 healts -= 1
                 print(score)
             clock.tick(snake_speed)
-            screensh = pygame.Surface((dis_width, dis_height))
-            screensh.blit(dis, (0, 0))
-            pygame.image.save(screensh, "screen/" + str(screenshot) + ".png")
-            screenshot += 1
         sys.exit()
 class menu():
     def complexity(self):
         global lang
         global scr
-        global screenshot
         run = True
         choice = 1
         background = pygame.image.load('res/fon.png')
@@ -847,14 +813,9 @@ class menu():
             elif choice < 1:
                 choice = 1
             pygame.display.update()
-            screensh = pygame.Surface((dis_width, dis_height))
-            screensh.blit(dis, (0, 0))
-            pygame.image.save(screensh, "screen/"+str(screenshot)+".png")
-            screenshot += 1
     def start(self):
         global lang
         global scr
-        global screenshot
         run = True
         choice = 1
         background = pygame.image.load('res/fon.png')
@@ -969,12 +930,7 @@ class menu():
             elif choice < 1:
                 choice = 1
             pygame.display.update()
-            screensh = pygame.Surface((dis_width, dis_height))
-            screensh.blit(dis, (0, 0))
-            pygame.image.save(screensh, "screen/"+str(screenshot)+".png")
-            screenshot += 1
     def settings(self):
-        global screenshot
         global lang
         global scr
         choice=1
@@ -1037,14 +993,9 @@ class menu():
             elif choice < 1:
                 choice=1
             pygame.display.update()
-            screensh = pygame.Surface((dis_width, dis_height))
-            screensh.blit(dis, (0, 0))
-            pygame.image.save(screensh, "screen/"+str(screenshot)+".png")
-            screenshot += 1
     def index(self):
         global lang
         global scr
-        global screenshot
         global dis_height
         global dis_width
         run = True
@@ -1123,9 +1074,5 @@ class menu():
             elif choice < 1:
                 choice=1
             pygame.display.update()
-            screensh = pygame.Surface((dis_width, dis_height))
-            screensh.blit(dis, (0, 0))
-            pygame.image.save(screensh, "screen/"+str(screenshot)+".png")
-            screenshot += 1
 
 menu.index(menu())
